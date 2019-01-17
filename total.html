@@ -1,0 +1,359 @@
+﻿<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="googleSheets.js"></script>
+      
+      <title>Google sheets</title>
+
+<style>
+  body {
+  margin: 0;
+  padding: 0;
+  text-align: center; 
+  font-size: 16px;
+  background-color:#CEECF5;
+    }
+    
+  /*ボタン参考:https://www.nxworld.net/tips/10-css-cute-design-good-chemistry-button-design-and-hover-effect.html*/
+  
+  input {
+  display: inline-block;
+  padding: .75em 4em;
+  border: 2px dashed #333;
+  border-radius: .4em 2em .5em 3em/3em .5em 2em .5em;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+    }
+        
+</style>
+      
+  </head>
+  <body>
+    <br><h1>雨を使った日本語</h1><br>
+      <div id="contents1"></div><p>
+      <div id="contents2"></div><p>
+      <input id="btn1" type="button" value="雨上がり"><p>
+      <input id="btn2" type="button" value="雨あし"><p>
+      <input id="btn3" type="button" value="雨だれ"><p>
+      <input id="btn4" type="button" value="雨模様"><p>
+      <input id="btn5" type="button" value="鬼雨"><p>
+      <input id="btn6" type="button" value="喜雨"><p>
+      <input id="btn7" type="button" value="霧雨"><p>
+      <input id="btn8" type="button" value="小雨"><p>
+      <input id="btn9" type="button" value="時雨"><p>
+      <input id="btn10" type="button" value="小夜時雨"><p>
+      
+
+    <script>
+    /* global $ loadSheets */
+   
+    $(function(){
+      $("#btn1").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[0][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[0][0]+"'/>");
+      }
+        });
+    
+    $(function(){
+      $("#btn2").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[1][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[1][0]+"'/>");
+      }
+        });
+        
+    $(function(){
+      $("#btn3").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[2][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[2][0]+"'/>");
+      }
+        });
+        
+    $(function(){
+      $("#btn4").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[3][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[3][0]+"'/>");
+      }
+        });
+        
+    $(function(){
+      $("#btn5").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[4][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[4][0]+"'/>");
+      }
+        });
+
+    $(function(){
+      $("#btn6").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[5][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[5][0]+"'/>");
+      }
+        });
+
+    $(function(){
+      $("#btn7").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[6][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[6][0]+"'/>");
+      }
+        });
+
+     $(function(){
+      $("#btn8").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[7][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[7][0]+"'/>");
+      }
+        });
+
+    $(function(){
+      $("#btn9").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[8][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[8][0]+"'/>");
+      }
+        });
+
+     $(function(){
+      $("#btn10").on("click",showdata);
+      
+      async function showdata () {
+        let data = await loadSheets('s1315105!C20:D30');
+        $("#contents1").append(data.values[9][1]);
+        $("#contents2").append("<img width='100px' height='100px' src='"+data.values[9][0]+"'/>");
+      }
+        });
+
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+      
+      
+      
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script>
+          $(function() {
+              "use strict";
+              // unsupported.
+              if (!'SpeechSynthesisUtterance' in window) {
+              alert('Speech synthesis(音声合成) APIには未対応です.');
+              return;
+              
+              }
+             // 発話機能をインスタンス化
+        var msg = new SpeechSynthesisUtterance();
+        $('#btn1').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn1').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+            
+         $('#btn2').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn2').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+              
+        $('#btn3').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn3').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+        $('#btn4').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn4').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+              
+        $('#btn5').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn5').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+
+        $('#btn6').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn5').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+
+        $('#btn7').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn5').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+
+         $('#btn8').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn5').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+
+
+          $('#btn9').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn5').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+
+         $('#btn10').on('click',function() {
+    
+            // 発話実行
+            msg.volume = 1.0; // 音量 min 0 ~ max 1
+            msg.rate = 1.0; // 速度 min 0 ~ max 10
+            msg.pitch = 1.2; // 音程 min 0 ~ max 2
+
+            msg.text = $('#btn5').val(); // 話す中身
+            msg.lang = 'ja-JP'; // en-US or ja-JP
+    
+                speechSynthesis.speak(msg);
+    
+            // 終了時の処理
+            msg.onend = function (event) {
+            console.log('喋った時間：' + event.elapsedTime + 's');
+    }
+  });
+  
+});
+</script>
+      
+      
+      
+      
+  </body>
+</html>
